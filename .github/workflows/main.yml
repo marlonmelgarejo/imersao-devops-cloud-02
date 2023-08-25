@@ -27,6 +27,16 @@ jobs:
           tags: |
             marlonmelgarejo/trader-worker:${{github.run_number}}
             marlonmelgarejo/trader-worker:latest
+
+      - name: Construindo a imagem docker da api
+        uses: docker/build-push-action@v4.1.1
+        with:
+          context: ./home-broker/02-api
+          file: ./home-broker/02-api/Dockerfile
+          push: true
+          tags: |
+            marlonmelgarejo/trader-api:${{github.run_number}}
+            marlonmelgarejo/trader-api:latest
    
 
               
