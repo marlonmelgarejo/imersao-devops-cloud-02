@@ -37,6 +37,21 @@ jobs:
           tags: |
             marlonmelgarejo/trader-api:${{github.run_number}}
             marlonmelgarejo/trader-api:latest
+
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps:
+      - name: CD teste
+        run: echo "teste CD"
+
+  CD2:
+    runs-on: ubuntu-latest
+    needs: [CD]
+    steps:
+      - name: CD1 teste
+        run: echo "teste CD1"        
+    
    
 
               
