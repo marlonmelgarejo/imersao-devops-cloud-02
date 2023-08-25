@@ -17,6 +17,16 @@ jobs:
         with: 
           username: ${{ secrets.DOCKERHUB_USR }}
           password: ${{ secrets.DOCKERHUB_PWD }}
+
+      - name: Construindo a imagem docker do worker
+        uses: docker/build-push-action@v4.1.1
+        with:
+          context: ./home-broker/01-worker
+          file: ./home-broker/01-worker/Dockerfile
+          push: true
+          tags: |
+            marlonmelgarejo/trader-worker:${{github.run_number}}
+            marlonmelgarejo/trader-worker:latest
    
 
               
